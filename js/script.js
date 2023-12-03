@@ -9,9 +9,78 @@
 
 
 // Visualizzare in pagina 5 numeri casuali.
-const numRandom = getRandomNumArray(5);
+let numRandom = getRandomNumArray(5);
 
-console.log(numRandom);
+let numRandom2 =  numRandom;
+
+// richiamo la variabile playGame in html e la inserisco in html
+let playGame = document.querySelector(".game");
+playGame.innerHTML = numRandom;
+
+
+
+
+
+
+
+
+
+
+
+
+// impostare un timer di 30 secondi
+let timer = 5;
+
+const clock = setInterval(
+
+    function () {
+
+        
+        if (timer === 0) {
+
+            // quando il timer arriva a zero scompare l'array
+            numRandom = getRandomNumArray(0);
+            playGame.innerHTML = numRandom;
+
+            // funzione che salva numeri inseriti dall'user x 5 volte
+            const getUserNum = [];
+
+            for (let i = 0; i < 5; i++) {
+                askUserNum = parseInt(prompt("Inserisci i numeri che ricordi precedentemente:"));
+                
+
+                for (let j = 0; j < numRandom2.length; j++) {
+
+                    if (numRandom2[j] === askUserNum) {
+
+                        //console.log(askUserNum);
+                        getUserNum.push(askUserNum);
+                        
+                    }
+                }
+
+            }
+
+            console.log("I numeri da te indovinati sono in totale: " + getUserNum.length);
+            console.log("e sono i seguenti: " + getUserNum);
+
+
+            clearInterval(clock);
+
+            
+        } else {
+
+            timer--;
+            console.log(timer);
+        }
+    },
+
+    1000
+);
+
+
+
+
 
 
 
@@ -40,3 +109,7 @@ function getRandomNumArray(num) {
     
     return array;
 }
+
+
+    
+    
