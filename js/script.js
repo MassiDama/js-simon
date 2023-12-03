@@ -17,17 +17,6 @@ let numRandom2 =  numRandom;
 let playGame = document.querySelector(".game");
 playGame.innerHTML = numRandom;
 
-
-
-
-
-
-
-
-
-
-
-
 // impostare un timer di 30 secondi
 let timer = 5;
 
